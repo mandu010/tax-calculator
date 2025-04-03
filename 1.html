@@ -1,0 +1,112 @@
+<div class="container">
+    <div class="header">
+      <h1>Income Tax Calculator (India)</h1>
+    </div>
+    <div class="content">
+      <div class="input-section">
+        <div class="tabs">
+          <div class="tab active" onclick="switchTab(this, 'oldRegime')">Old Regime</div>
+          <div class="tab" onclick="switchTab(this, 'newRegime')">New Regime</div>
+        </div>
+        
+        <div class="input-group">
+          <label for="financialYear">Financial Year</label>
+          <select id="financialYear">
+            <option value="2025-26">2025-26</option>
+            <option value="2024-25">2024-25</option>
+            <option value="2023-24">2023-24</option>
+            <option value="2022-23">2022-23</option>
+            <option value="2021-22">2021-22</option>
+          </select>
+        </div>
+        
+        <div class="input-group">
+          <label>Filing As</label>
+          <div class="radio-group">
+            <div class="radio-option">
+              <input type="radio" id="individual" name="filingType" value="individual" checked>
+              <label for="individual">Individual</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="huf" name="filingType" value="huf">
+              <label for="huf">HUF</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="aop" name="filingType" value="aop">
+              <label for="aop">AOP/BOI</label>
+            </div>
+          </div>
+        </div>
+        
+        <div class="input-group">
+          <label>Age Group</label>
+          <div class="radio-group">
+            <div class="radio-option">
+              <input type="radio" id="below60" name="ageGroup" value="below60" checked>
+              <label for="below60">Below 60</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="senior" name="ageGroup" value="senior">
+              <label for="senior">60-80 years</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="superSenior" name="ageGroup" value="superSenior">
+              <label for="superSenior">Above 80</label>
+            </div>
+          </div>
+        </div>
+        
+        <div class="input-group">
+          <label for="income">Income from Salary</label>
+          <input type="number" id="income" placeholder="Enter amount">
+        </div>
+        
+        <div class="input-group" id="oldRegimeFields">
+          <label for="deductions">Total Deductions (80C, 80D, etc.)</label>
+          <input type="number" id="deductions" placeholder="Enter amount">
+        </div>
+        
+        <div class="input-group">
+          <label for="otherIncome">Other Income</label>
+          <input type="number" id="otherIncome" placeholder="Enter amount">
+        </div>
+        
+        <button onclick="calculateTax()">Calculate Tax</button>
+      </div>
+      
+      <div class="output-section">
+        <div class="result-card">
+          <div class="result-title">Total Tax</div>
+          <div class="result-value" id="totalTax">₹0</div>
+        </div>
+        
+        <div class="result-card">
+          <div class="result-title">Net Taxable Income</div>
+          <div class="result-value" id="taxableIncome">₹0</div>
+        </div>
+        
+        <div class="tax-breakdown">
+          <h3>Tax Breakdown</h3>
+          <div id="taxBreakdown">
+            <!-- Tax breakdown will be populated here -->
+            <div class="breakdown-item">
+              <div class="breakdown-label">Base Tax</div>
+              <div class="breakdown-value" id="baseTax">₹0</div>
+            </div>
+            <div class="breakdown-item">
+              <div class="breakdown-label">Surcharge</div>
+              <div class="breakdown-value" id="surcharge">₹0</div>
+            </div>
+            <div class="breakdown-item">
+              <div class="breakdown-label">Health & Education Cess</div>
+              <div class="breakdown-value" id="cess">₹0</div>
+            </div>
+            <div class="breakdown-item">
+              <div class="breakdown-label">Total Tax Liability</div>
+              <div class="breakdown-value" id="totalLiability">₹0</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
